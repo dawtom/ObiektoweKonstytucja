@@ -51,9 +51,11 @@ public class ConstitutionParser {
                         else
                         {
                             if (tmpLine.endsWith("-")){
+                                tmpLine = tmpLine.substring(0, tmpLine.length()-1);
                                 tmpConstitution.getArticles().get(tmpArticleNumber - 1)
                                         .setContent(tmpConstitution.getArticles().get(tmpArticleNumber - 1).
                                                 getContent().concat(tmpLine));
+                                //add tmpLine to current article (content += tmpLine)
                             }
                             else
                             {
