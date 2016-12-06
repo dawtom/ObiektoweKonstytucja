@@ -28,7 +28,7 @@ public class ConstitutionParser {
             while((tmpLine = bfr.readLine()) != null && !tmpLine.startsWith("Rozdział ")){
                 //omit everything while it is not a first chapter
             }
-            tmpConstitution.getChapters().add(new Chapter(tmpChapterNumber));
+            tmpConstitution.getChapters().add(new Chapter(tmpChapterNumber, tmpArticleNumber + 1));
             if ((tmpLine = bfr.readLine()) != null){
                 tmpConstitution.getChapters().get(tmpChapterNumber - 1).setTitle(tmpLine);
             }
@@ -39,8 +39,10 @@ public class ConstitutionParser {
                 }
                 else
                     if (tmpLine.startsWith("Rozdział ")){
+                        tmpConstitution.getChapters().get(tmpChapterNumber - 1).setEndArticleNumber(tmpArticleNumber);
                         tmpChapterNumber++;
-                        tmpConstitution.getChapters().add(new Chapter(tmpChapterNumber));
+                        tmpConstitution.getChapters().add(new Chapter(tmpChapterNumber, tmpArticleNumber + 1));
+                        tmpLine = bfr.readLine();
                         tmpConstitution.getChapters().get(tmpChapterNumber - 1).setTitle(tmpLine);
                     }
                     else
@@ -59,13 +61,16 @@ public class ConstitutionParser {
                             }
                             else
                             {
-                                tmpConstitution.getArticles().get(tmpArticleNumber - 1)
-                                        .setContent(tmpConstitution.getArticles().get(tmpArticleNumber - 1).
-                                                getContent().concat(tmpLine + "\n"));
+                                if (!tmpLine.toUpperCase().equals(tmpLine)){
+                                    tmpConstitution.getArticles().get(tmpArticleNumber - 1)
+                                            .setContent(tmpConstitution.getArticles().get(tmpArticleNumber - 1).
+                                                    getContent().concat(tmpLine + "\n"));
+                                }
                             }
 
 
                         }
+                tmpConstitution.getChapters().get(tmpChapterNumber - 1).setEndArticleNumber(tmpArticleNumber);
             }
 
         } catch (IOException e) {

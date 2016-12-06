@@ -30,11 +30,27 @@ public class Constitution {
     private List <Article> articles = new LinkedList<Article>();
 
     public void displayArticle(Integer articleNumber){
+        System.out.println(this.getArticles().get(articleNumber - 1));
+    }
 
+    private String getArticlesToDisplay(Integer start, Integer stop){
+        String result = new String();
+        List <Article> articlesSublist = this.getArticles().subList(start - 1, stop );
+        for (Article article :
+                articlesSublist) {
+            result += article.toString();
+        }
+        return result;
     }
 
     public void displayArticles(Integer start, Integer stop){
+        System.out.println(getArticlesToDisplay(start, stop));
+    }
 
+    public void displayChapter(Integer chapterNumber){
+        Chapter tmpChapter = this.getChapters().get(chapterNumber - 1);
+        System.out.println(tmpChapter.toString() +
+                getArticlesToDisplay(tmpChapter.getStartArticleNumber(),tmpChapter.getEndArticleNumber()));
     }
 
     @Override

@@ -6,6 +6,9 @@ import java.util.List;
  */
 public class Chapter {
     private String title;
+    private Integer number;
+    private Integer startArticleNumber;
+    private Integer endArticleNumber;
 
     public String getTitle() {
         return title;
@@ -23,30 +26,32 @@ public class Chapter {
         this.number = number;
     }
 
-    public List<Article> getArticles() {
-        return articles;
+
+    public Integer getStartArticleNumber() {
+        return startArticleNumber;
     }
 
-    public void setArticles(List<Article> articles) {
-        this.articles = articles;
+    public void setStartArticleNumber(Integer startArticleNumber) {
+        this.startArticleNumber = startArticleNumber;
     }
 
-    private Integer number;
-    private List<Article> articles = new LinkedList<Article>();
+    public Integer getEndArticleNumber() {
+        return endArticleNumber;
+    }
 
+    public void setEndArticleNumber(Integer endArticleNumber) {
+        this.endArticleNumber = endArticleNumber;
+    }
 
-    public Chapter(Integer number) {
+    public Chapter(Integer number, Integer startArticleNumber) {
         this.number = number;
+        this.startArticleNumber = startArticleNumber;
+
     }
 
 
     @Override
     public String toString(){
-        String result = new String();
-        for (Article article :
-                this.articles) {
-            result += article.toString();
-        }
-        return "Rozdział " + this.number.toString() + "\n" + result;
+        return "Rozdział " + this.number.toString() + "\n" + this.getTitle() + "\n";
     }
 }
