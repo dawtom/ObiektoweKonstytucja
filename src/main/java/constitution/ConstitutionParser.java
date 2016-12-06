@@ -1,3 +1,5 @@
+package constitution;
+
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -10,9 +12,9 @@ import java.util.LinkedList;
 public class ConstitutionParser {
 
     private Constitution tmpConstitution = new Constitution(new LinkedList<Chapter>(), new LinkedList<Article>());
-    Constitution parseConstitution(String inputFileName){
+    public Constitution parseConstitution(String inputFileName){
         FileReader fileReader = null;
-        String tmpLine = "";
+        String tmpLine = new String();
         Integer tmpChapterNumber = 1;
         Integer tmpArticleNumber = 0;
 

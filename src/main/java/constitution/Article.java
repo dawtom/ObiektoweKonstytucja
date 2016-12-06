@@ -1,3 +1,5 @@
+package constitution;
+
 /**
  * Created by Dawid Tomasiewicz on 02.12.16.
  */
@@ -10,14 +12,6 @@ public class Article {
 
     public void setContent(String content) {
         this.content = content;
-    }
-
-    public Integer getNumber() {
-        return number;
-    }
-
-    public void setNumber(Integer number) {
-        this.number = number;
     }
 
     public Article(Integer number) {

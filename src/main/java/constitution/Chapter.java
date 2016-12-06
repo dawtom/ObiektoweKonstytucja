@@ -1,5 +1,4 @@
-import java.util.LinkedList;
-import java.util.List;
+package constitution;
 
 /**
  * Created by Dawid Tomasiewicz on 02.12.16.
