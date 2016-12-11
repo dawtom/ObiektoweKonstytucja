@@ -3,6 +3,7 @@ package constitution;
 import java.util.LinkedList;
 import java.util.List;
 
+
 import static java.lang.System.exit;
 
 /**
@@ -98,7 +99,6 @@ public class OptionsParser {
                     System.out.println("Invalid third argument. It should be a number");
                     exit(1);
                 }
-                //TODO Warning about unused parameter
             }
             else
                 if (args[1].equals("chapter")){
