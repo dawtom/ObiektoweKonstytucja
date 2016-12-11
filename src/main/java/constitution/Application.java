@@ -5,8 +5,8 @@ package constitution;
  */
 public class Application {
     public static void main(String[] args) {
-        OptionsParser optionsParser = new OptionsParser(args);
-        Constitution constitution = new ConstitutionParser().parseConstitution(optionsParser.getFilename());
-        constitution.display(optionsParser.getOption(), optionsParser.getFirstNumber(), optionsParser.getSecondNumber());
+        OptionsParser options = new OptionsParser(args);
+        Constitution constitution = new ConstitutionParser().parseConstitution(options.getFilename());
+        constitution.display(options.getOption(), options.getFirstNumber(), options.getSecondNumber());
     }
 }

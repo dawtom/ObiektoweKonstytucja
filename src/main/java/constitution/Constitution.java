@@ -1,5 +1,7 @@
 package constitution;
 
+import java.io.BufferedReader;
+import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -62,5 +64,21 @@ public class Constitution {
         if (option.equals("article")){displayArticle(firstNumber);}
         if (option.equals("chapter")){displayChapter(firstNumber);}
 
+    }
+
+    public void finishChapter(Integer tmpChapterNumber, Integer tmpArticleNumber) {
+        this.chapters.get(tmpChapterNumber - 1).setEndArticleNumber(tmpArticleNumber);
+    }
+
+    public void addNewChapter(BufferedReader bfr, Integer tmpChapterNumber, Integer tmpArticleNumber) {
+        this.getChapters().add(new Chapter(tmpChapterNumber, tmpArticleNumber + 1));
+        String tmpLine = "";
+        try{
+            tmpLine=bfr.readLine();
+        }
+        catch (IOException ex){
+            System.out.println("IOex");
+        }
+        this.getChapters().get(tmpChapterNumber - 1).setTitle(tmpLine);
     }
 }

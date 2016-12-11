@@ -41,11 +41,9 @@ public class ConstitutionParser {
                 }
                 else
                     if (tmpLine.startsWith("Rozdział ")){
-                        tmpConstitution.getChapters().get(tmpChapterNumber - 1).setEndArticleNumber(tmpArticleNumber);
+                        tmpConstitution.finishChapter(tmpChapterNumber,tmpArticleNumber);
                         tmpChapterNumber++;
-                        tmpConstitution.getChapters().add(new Chapter(tmpChapterNumber, tmpArticleNumber + 1));
-                        tmpLine = bfr.readLine();
-                        tmpConstitution.getChapters().get(tmpChapterNumber - 1).setTitle(tmpLine);
+                        tmpConstitution.addNewChapter(bfr, tmpChapterNumber,tmpArticleNumber);
                     }
                     else
                         if (tmpLine.startsWith("Art. ")){
@@ -80,11 +78,8 @@ public class ConstitutionParser {
             System.exit(2);
         }
 
-
-
-
-
         return tmpConstitution;
     }
+
 
 }
