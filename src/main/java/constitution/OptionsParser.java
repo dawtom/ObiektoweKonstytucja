@@ -38,8 +38,8 @@ public class OptionsParser {
 
     private void parse(String[] args){
         List <String> result = new LinkedList<String>();
-        String message = "\nCorrect arguments are: <filename> <whatToDisplay> <number> <number \n" +
-                "Second argument can be 'articles', 'article' or 'chapter'" +
+        String message = "\nCorrect arguments are: <filename> <whatToDisplay> <number> <number> \n" +
+                "Second argument can be 'articles', 'article' or 'chapter'\n" +
                 "Third argument is article/chapter number or first of articles to display\n" +
                 "Fourth argument is needed when second is 'articles', it is a number of the last article to display";
 
