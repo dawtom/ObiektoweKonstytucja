@@ -54,17 +54,14 @@ public class ConstitutionParser {
                         {
                             if (tmpLine.endsWith("-")){
                                 tmpLine = tmpLine.substring(0, tmpLine.length()-1);
-                                tmpConstitution.getArticles().get(tmpArticleNumber - 1)
-                                        .setContent(tmpConstitution.getArticles().get(tmpArticleNumber - 1).
-                                                getContent().concat(tmpLine));
+                                tmpConstitution.addToTemporaryArticle(tmpLine,tmpArticleNumber);
                                 //add tmpLine to current article (content += tmpLine)
                             }
                             else
                             {
                                 if (!tmpLine.toUpperCase().equals(tmpLine)){
-                                    tmpConstitution.getArticles().get(tmpArticleNumber - 1)
-                                            .setContent(tmpConstitution.getArticles().get(tmpArticleNumber - 1).
-                                                    getContent().concat(tmpLine + "\n"));
+                                    tmpLine = tmpLine + "\n";
+                                    tmpConstitution.addToTemporaryArticle(tmpLine,tmpArticleNumber);
                                 }
                             }
 
@@ -80,6 +77,4 @@ public class ConstitutionParser {
 
         return tmpConstitution;
     }
-
-
 }

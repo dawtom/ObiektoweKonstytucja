@@ -17,22 +17,10 @@ public class Chapter {
         this.title = title;
     }
 
-    public Integer getNumber() {
-        return number;
-    }
-
-    public void setNumber(Integer number) {
-        this.number = number;
-    }
-
-
     public Integer getStartArticleNumber() {
         return startArticleNumber;
     }
 
-    public void setStartArticleNumber(Integer startArticleNumber) {
-        this.startArticleNumber = startArticleNumber;
-    }
 
     public Integer getEndArticleNumber() {
         return endArticleNumber;

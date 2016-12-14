@@ -81,4 +81,9 @@ public class Constitution {
         }
         this.getChapters().get(tmpChapterNumber - 1).setTitle(tmpLine);
     }
+
+    public void addToTemporaryArticle(String tmpLine, Integer tmpArticleNumber) {
+        this.getArticles().get(tmpArticleNumber - 1).addToContent(tmpLine);
+    }
+
 }

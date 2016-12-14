@@ -28,4 +28,7 @@ public class Article {
         return "Art. " + this.number.toString() + "\n" + content;
     }
 
+    public void addToContent(String tmpLine) {
+        this.content = this.content.concat(tmpLine);
+    }
 }
